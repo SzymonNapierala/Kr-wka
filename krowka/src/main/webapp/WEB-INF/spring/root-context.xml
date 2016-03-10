@@ -10,8 +10,6 @@
  			http://www.springframework.org/schema/mvc
 			http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<context:component-scan base-package="pl.org.napierala.budget.krowka.controller" />
-
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/view/</value>
@@ -23,5 +21,9 @@
 
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 	<mvc:annotation-driven />
+
+	<import resource="data-context.xml"/>
+
+	<context:component-scan base-package="pl.org.napierala.budget.krowka.controller" />
 
 </beans>
