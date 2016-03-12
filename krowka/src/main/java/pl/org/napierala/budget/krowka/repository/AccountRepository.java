@@ -10,14 +10,14 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
 
 	public Account save(Account account);
 
-	Account findOne(Long accountId);
+	public Account findOne(Long accountId);
 
-	Iterable<Account> findAll();
+	public Iterable<Account> findAll();
 
-	long count();
+	public long count();
 
-	void delete(Account account);
+	public void delete(Account account);
 
-	boolean exists(Long accountId);
+	public boolean exists(Long accountId);
 
 }

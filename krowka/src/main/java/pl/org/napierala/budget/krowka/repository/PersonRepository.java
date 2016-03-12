@@ -10,14 +10,14 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
 	public Person save(Person person);
 
-	Person findOne(Long personId);
+	public Person findOne(Long personId);
 
-	Iterable<Person> findAll();
+	public Iterable<Person> findAll();
 
-	long count();
+	public long count();
 
-	void delete(Person person);
+	public void delete(Person person);
 
-	boolean exists(Long personId);
+	public boolean exists(Long personId);
 
 }

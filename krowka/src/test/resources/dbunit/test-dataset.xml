@@ -1,0 +1,8 @@
+<dataset>
+	<account id="1" initialValue="100" />
+	<account id="2" initialValue="200" />
+	<account id="3" initialValue="300" />
+	<person id="1" firstName="Adam" lastName="Amarantowy" />
+	<person id="2" firstName="Bogdan" lastName="Biały" />
+	<person id="3" firstName="Cezary" lastName="Czarny" />
+</dataset>

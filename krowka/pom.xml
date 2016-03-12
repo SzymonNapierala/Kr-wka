@@ -11,7 +11,9 @@
 	<url>https://github.com/SzymonNapierala/Kr-wka</url>
 
 	<properties>
+		<dependency.dbunit.version>2.5.1</dependency.dbunit.version>
 		<dependency.hibernate.version>5.0.6.Final</dependency.hibernate.version>
+		<dependency.hsqldb.version>2.3.3</dependency.hsqldb.version>
 		<dependency.jackson.servlet.version>2.7.2</dependency.jackson.servlet.version>
 		<dependency.javax.servlet.version>3.1.0</dependency.javax.servlet.version>
 		<dependency.jstl.version>1.2</dependency.jstl.version>
@@ -21,6 +23,7 @@
 		<dependency.spring.version>4.2.4.RELEASE</dependency.spring.version>
 		<dependency.spring.data.version>1.9.4.RELEASE</dependency.spring.data.version>
 		<dependency.spring.security.version>4.0.4.RELEASE</dependency.spring.security.version>
+		<dependency.spring.test.dbunit.version>1.2.1</dependency.spring.test.dbunit.version>
 		<java.version>1.7</java.version>
 	</properties>
 
@@ -30,6 +33,12 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${dependency.jackson.servlet.version}</version>
+		</dependency>
+		<!-- Spring Test DBUnit -->
+		<dependency>
+			<groupId>com.github.springtestdbunit</groupId>
+			<artifactId>spring-test-dbunit</artifactId>
+			<version>${dependency.spring.test.dbunit.version}</version>
 		</dependency>
 		<!-- Java Servlet API -->
 		<dependency>
@@ -72,6 +81,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${dependency.mysql.version}</version>
 		</dependency>
+		<!-- DbUnit -->
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>${dependency.dbunit.version}</version>
+		</dependency>
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -83,6 +98,12 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${dependency.hibernate.version}</version>
 		</dependency>
+		<!-- HyperSQL Database -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${dependency.hsqldb.version}</version>
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -92,6 +113,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
+			<version>${dependency.spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 			<version>${dependency.spring.version}</version>
 		</dependency>
 		<dependency>
