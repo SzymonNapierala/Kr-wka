@@ -2,7 +2,10 @@
 	<account id="1" initialValue="100" />
 	<account id="2" initialValue="200" />
 	<account id="3" initialValue="300" />
-	<person id="1" firstName="Adam" lastName="Amarantowy" />
-	<person id="2" firstName="Bogdan" lastName="Biały" />
-	<person id="3" firstName="Cezary" lastName="Czarny" />
+	<person id="1" firstName="Adam" lastName="Amarantowy" dtype="Person" />
+	<person id="2" firstName="Bogdan" lastName="Biały" dtype="Person" />
+	<person id="3" firstName="Cezary" lastName="Czarny" dtype="Person" />
+	<person id="4" firstName="Adam" lastName="Amarantowy" username="adam.amarantowy" passwordEncrypted="a" dtype="User" />
+	<person id="5" firstName="Bogdan" lastName="Biały" username="bogdan.bialy" passwordEncrypted="b" dtype="User" />
+	<person id="6" firstName="Cezary" lastName="Czarny" username="cezary.czarny" passwordEncrypted="c" dtype="User" />
 </dataset>

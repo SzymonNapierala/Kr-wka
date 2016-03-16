@@ -11,8 +11,10 @@
 	<url>https://github.com/SzymonNapierala/Kr-wka</url>
 
 	<properties>
+		<dependency.commons.beanutils.version>1.9.2</dependency.commons.beanutils.version>
 		<dependency.dbunit.version>2.5.1</dependency.dbunit.version>
 		<dependency.hibernate.version>5.0.6.Final</dependency.hibernate.version>
+		<dependency.hibernate.validator.version>5.2.4.Final</dependency.hibernate.validator.version>
 		<dependency.hsqldb.version>2.3.3</dependency.hsqldb.version>
 		<dependency.jackson.servlet.version>2.7.2</dependency.jackson.servlet.version>
 		<dependency.javax.servlet.version>3.1.0</dependency.javax.servlet.version>
@@ -24,6 +26,7 @@
 		<dependency.spring.data.version>1.9.4.RELEASE</dependency.spring.data.version>
 		<dependency.spring.security.version>4.0.4.RELEASE</dependency.spring.security.version>
 		<dependency.spring.test.dbunit.version>1.2.1</dependency.spring.test.dbunit.version>
+		<dependency.validation.version>1.1.0.Final</dependency.validation.version>
 		<java.version>1.7</java.version>
 	</properties>
 
@@ -39,6 +42,12 @@
 			<groupId>com.github.springtestdbunit</groupId>
 			<artifactId>spring-test-dbunit</artifactId>
 			<version>${dependency.spring.test.dbunit.version}</version>
+		</dependency>
+		<!-- Apache Commons BeanUtils -->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${dependency.commons.beanutils.version}</version>
 		</dependency>
 		<!-- Java Servlet API -->
 		<dependency>
@@ -67,6 +76,12 @@
 			<groupId>javax.transaction</groupId>
 			<artifactId>jta</artifactId>
 			<version>${dependency.jta.version}</version>
+		</dependency>
+		<!-- Bean Validation API -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>${dependency.validation.version}</version>
 		</dependency>
 		<!-- JUnit -->
 		<dependency>
@@ -97,6 +112,11 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${dependency.hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${dependency.hibernate.validator.version}</version>
 		</dependency>
 		<!-- HyperSQL Database -->
 		<dependency>

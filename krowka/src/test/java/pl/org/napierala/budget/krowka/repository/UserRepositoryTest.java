@@ -21,15 +21,15 @@ import com.github.springtestdbunit.annotation.DatabaseSetup;
 	DbUnitTestExecutionListener.class
 })
 @DatabaseSetup("classpath:/dbunit/test-dataset.xml")
-public class PersonRepositoryTest {
+public class UserRepositoryTest {
 
 	@Test
 	public void countTest() {
-		long count = this.personRepository.count();
-		Assert.assertEquals(6L, count);
+		long count = this.userRepository.count();
+		Assert.assertEquals(3L, count);
 	}
 
 	@Autowired
-	private PersonRepository personRepository;
+	private UserRepository userRepository;
 
 }

@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.org.napierala.budget.krowka.model.Account;
 import pl.org.napierala.budget.krowka.model.Person;
+import pl.org.napierala.budget.krowka.model.User;
 import pl.org.napierala.budget.krowka.repository.AccountRepository;
 import pl.org.napierala.budget.krowka.repository.PersonRepository;
+import pl.org.napierala.budget.krowka.repository.UserRepository;
 
 @Controller
 public class MainController {
@@ -25,6 +27,13 @@ public class MainController {
 		person.setFirstName("Jan");
 		person.setLastName("Kowalski");
 		personRepository.save(person);
+		User user = new User();
+		user.setFirstName("Jan");
+		user.setLastName("Kowalski");
+		user.setUsername("jan.kowalski");
+		user.setPassword("jan.kowalski");
+		user.setPasswordRepeat("jan.kowalski");
+		userRepository.save(user);
 		return "index";
 	}
 
@@ -33,5 +42,8 @@ public class MainController {
 
 	@Autowired
 	PersonRepository personRepository;
+
+	@Autowired
+	UserRepository userRepository;
 
 }
