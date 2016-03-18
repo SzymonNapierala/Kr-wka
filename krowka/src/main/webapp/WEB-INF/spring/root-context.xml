@@ -22,7 +22,8 @@
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 	<mvc:annotation-driven />
 
-	<import resource="data-context.xml"/>
+	<import resource="classpath:/spring/data-context.xml"/>
+	<import resource="classpath:/spring/security-context.xml"/>
 
 	<context:component-scan base-package="pl.org.napierala.budget.krowka.controller" />
 
