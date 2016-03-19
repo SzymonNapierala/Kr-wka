@@ -69,7 +69,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="#">Profil</a></li>
 							<li><a href="#">Preferencje</a></li>
-							<li><a href="#">Wyloguj</a></li>
+							<li><a href="logout">Wyloguj</a></li>
 						</ul>
 					</li>
 				</ul>
