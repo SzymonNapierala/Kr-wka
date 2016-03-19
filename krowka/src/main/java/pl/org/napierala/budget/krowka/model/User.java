@@ -1,5 +1,6 @@
 package pl.org.napierala.budget.krowka.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
@@ -48,6 +49,7 @@ public class User extends Person {
 		this.passwordEncrypted = passwordEncrypted;
 	}
 
+	@Column(unique = true)
 	@NotNull
 	@Size(min = 1)
 	private String username;

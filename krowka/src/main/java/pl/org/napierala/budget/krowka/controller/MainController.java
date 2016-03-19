@@ -27,13 +27,15 @@ public class MainController {
 		person.setFirstName("Jan");
 		person.setLastName("Kowalski");
 		personRepository.save(person);
-		User user = new User();
-		user.setFirstName("Jan");
-		user.setLastName("Kowalski");
-		user.setUsername("jan.kowalski");
-		user.setPassword("jan.kowalski");
-		user.setPasswordRepeat("jan.kowalski");
-		userRepository.save(user);
+		if (userRepository.findByUsername("jan.kowalski") == null) {
+			User user = new User();
+			user.setFirstName("Jan");
+			user.setLastName("Kowalski");
+			user.setUsername("jan.kowalski");
+			user.setPassword("jan.kowalski");
+			user.setPasswordRepeat("jan.kowalski");
+			userRepository.save(user);
+		}
 		return "index";
 	}
 
