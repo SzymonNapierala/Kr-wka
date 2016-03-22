@@ -11,6 +11,14 @@
 		<intercept-url pattern="/resources/**" access="permitAll" />
 		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/**" access="isAuthenticated()" />
+		<form-login
+				login-page="/login"
+				login-processing-url="/login"
+				default-target-url="/"
+				authentication-failure-url="/login?error=true"
+				username-parameter="username"
+				password-parameter="password" />
+		<csrf />
 	</http>
 
 	<authentication-manager>
