@@ -25,6 +25,7 @@
 	<import resource="classpath:/spring/data-context.xml"/>
 	<import resource="classpath:/spring/security-context.xml"/>
 
+	<context:component-scan base-package="pl.org.napierala.budget.krowka.config" />
 	<context:component-scan base-package="pl.org.napierala.budget.krowka.controller" />
 	<context:component-scan base-package="pl.org.napierala.budget.krowka.service" />
 

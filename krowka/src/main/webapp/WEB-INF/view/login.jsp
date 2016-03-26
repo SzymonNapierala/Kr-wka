@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pl">
@@ -26,7 +27,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Krówka</title>
+	<title><spring:message code="app.name" /></title>
 
 	<!-- Bootstrap -->
 	<link href="<c:url value="/resources/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css" />" rel="stylesheet">
@@ -52,16 +53,16 @@
 
 	<div class="container">
 		<form class="form-signin" action="<c:url value="/login" />" method="post">
-			<h2 class="form-signin-heading">Logowanie</h2>
-			<label for="username" class="sr-only">Użytkownik</label>
-			<input type="text" name="username" class="form-control" placeholder="Użytkownik" required autofocus />
-			<label for="password" class="sr-only">Hasło</label>
-			<input type="password" name="password" class="form-control" placeholder="Hasło" required />
+			<h2 class="form-signin-heading"><spring:message code="login.title" /></h2>
+			<label for="username" class="sr-only"><spring:message code="model.user.username" /></label>
+			<input type="text" name="username" class="form-control" placeholder="<spring:message code="model.user.username" />" required autofocus />
+			<label for="password" class="sr-only"><spring:message code="model.user.password" /></label>
+			<input type="password" name="password" class="form-control" placeholder="<spring:message code="model.user.password" />" required />
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<c:if test="${not empty error}">
-				<div class="alert alert-danger" role="alert">${error}</div>
+				<div class="alert alert-danger" role="alert"><spring:message code="${error}" /></div>
 			</c:if>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj się</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="login.action" /></button>
 		</form>
 	</div>
 

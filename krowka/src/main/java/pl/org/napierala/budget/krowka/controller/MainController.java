@@ -55,7 +55,7 @@ public class MainController {
 		ModelAndView model = new ModelAndView();
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (error != null) {
-			model.addObject("error", "Nieprawidłowy użytkownik lub hasło");
+			model.addObject("error", "validation.username_or_password.invalid");
 		}
 		model.setViewName("login");
 		if ((authentication != null)
