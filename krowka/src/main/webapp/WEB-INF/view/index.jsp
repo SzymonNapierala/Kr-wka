@@ -77,6 +77,13 @@
 		</div>
 	</nav>
 
+	<footer class="footer">
+		<div class="container">
+			<a href="?lang=en"><img src="<c:url value="/resources/img/flag/gb.png" />" alt="English" class="language gb"/></a>
+			<a href="?lang=pl"><img src="<c:url value="/resources/img/flag/pl.png" />" alt="Polski" class="language pl"/></a>
+		</div>
+	</footer>
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="<c:url value="/resources/lib/jquery-1.12.1.min.js" />"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->

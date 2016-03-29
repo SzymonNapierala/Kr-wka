@@ -20,7 +20,6 @@
 	</bean>
 
 	<mvc:resources location="/resources/" mapping="/resources/**" />
-	<mvc:annotation-driven />
 
 	<import resource="classpath:/spring/data-context.xml"/>
 	<import resource="classpath:/spring/security-context.xml"/>
