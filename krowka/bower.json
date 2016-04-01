@@ -1,0 +1,9 @@
+{
+	"name": "Krówka",
+	"dependencies": {
+		"angular": "~1.5.3",
+		"bootstrap": "~3.3.6",
+		"jquery": "~1.12.2",
+		"react": "~0.14.8"
+	}
+}

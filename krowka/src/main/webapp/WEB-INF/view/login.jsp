@@ -30,7 +30,7 @@
 	<title><spring:message code="app.name" /></title>
 
 	<!-- Bootstrap -->
-	<link href="<c:url value="/resources/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/bower/bootstrap/dist/css/bootstrap.min.css" />" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,11 +39,11 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-	<script src="<c:url value="/resources/lib/react-0.14.7/react.js" />"></script>
-	<script src="<c:url value="/resources/lib/react-0.14.7/react-dom.js" />"></script>
+	<script src="<c:url value="/resources/bower/react/react.min.js" />"></script>
+	<script src="<c:url value="/resources/bower/react/react-dom.min.js" />"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
 
-	<script src="<c:url value="/resources/lib/angularjs-1.5.0/angular.min.js" />"></script>
+	<script src="<c:url value="/resources/bower/angular/angular.min.js" />"></script>
 
 	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
@@ -74,9 +74,9 @@
 	</footer>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="<c:url value="/resources/lib/jquery-1.12.1.min.js" />"></script>
+	<script src="<c:url value="/resources/bower/jquery/dist/jquery.min.js" />"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="<c:url value="/resources/lib/bootstrap-3.3.6-dist/js/bootstrap.min.js" />"></script>
+	<script src="<c:url value="/resources/bower/bootstrap/dist/js/bootstrap.min.js" />"></script>
 
 </body>
 
