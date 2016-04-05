@@ -10,15 +10,6 @@
  			http://www.springframework.org/schema/mvc
 			http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/view/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
-	</bean>
-
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 
 	<import resource="classpath:/spring/data-context.xml"/>
