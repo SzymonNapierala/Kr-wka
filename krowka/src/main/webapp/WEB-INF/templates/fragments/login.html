@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<div class="container" th:fragment="login">
+		<form class="form-signin" th:action="@{/login}" method="post">
+			<h2 class="form-signin-heading" th:text="#{login.title}"></h2>
+			<label for="username" class="sr-only" th:text="#{model.user.username}"></label>
+			<input type="text" name="username" class="form-control" th:placeholder="#{model.user.username}" required="true" autofocus="true" />
+			<label for="password" class="sr-only" th:text="#{model.user.password}"></label>
+			<input type="password" name="password" class="form-control" th:placeholder="#{model.user.password}" required="true" />
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+			<div class="alert alert-danger" role="alert" th:if="${error != null}" th:text="#{${error}}">#{${error}}</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.action}"></button>
+		</form>
+	</div>
+
+</body>
+</html>
