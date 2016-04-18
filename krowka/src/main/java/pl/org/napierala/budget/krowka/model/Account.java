@@ -2,9 +2,11 @@ package pl.org.napierala.budget.krowka.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -36,11 +38,14 @@ public class Account {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "id")
 	private Long id;
 
+	@Column(name = "initial_value")
 	private BigDecimal initialValue;
 
 	@ManyToOne
+	@JoinColumn(name = "person_id")
 	private Person person;
 
 }

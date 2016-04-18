@@ -2,6 +2,7 @@ package pl.org.napierala.budget.krowka.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -44,13 +45,16 @@ public class Person {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "id")
 	private Long id;
 
+	@Column(name = "first_name")
 	private String firstName;
 
+	@Column(name = "last_name")
 	private String lastName;
 
-	@OneToMany
+	@OneToMany(mappedBy = "person")
 	private List<Account> accounts;
 
 }

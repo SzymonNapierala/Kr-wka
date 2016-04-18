@@ -1,7 +1,12 @@
 package pl.org.napierala.budget.krowka.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -49,9 +54,17 @@ public class User extends Person {
 		this.passwordEncrypted = passwordEncrypted;
 	}
 
-	@Column(unique = true)
+	public List<Role> getRoles() {
+		return this.roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
 	@NotNull
 	@Size(min = 1)
+	@Column(name = "username", unique = true)
 	private String username;
 
 	@Transient
@@ -62,6 +75,14 @@ public class User extends Person {
 
 	@NotNull
 	@Size(min = 1)
+	@Column(name = "password_encrypted")
 	private String passwordEncrypted;
+
+	@ManyToMany
+	@JoinTable(
+			name = "user_role",
+			joinColumns = @JoinColumn(name = "role_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<Role> roles;
 
 }
