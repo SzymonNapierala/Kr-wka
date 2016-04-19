@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pl.org.napierala.budget.krowka.model.Role;
+import pl.org.napierala.budget.krowka.model.RolePermission;
 import pl.org.napierala.budget.krowka.model.User;
+import pl.org.napierala.budget.krowka.rbac.permission.PermissionConst;
+import pl.org.napierala.budget.krowka.repository.RolePermissionRepository;
 import pl.org.napierala.budget.krowka.repository.RoleRepository;
 import pl.org.napierala.budget.krowka.repository.UserRepository;
 
@@ -30,8 +33,14 @@ public class BootstrapService implements InitializingBean {
 
 	private void createDefaultRoles() {
 		createRole(ROLE_GUEST_NAME, true, null);
-		createRole(ROLE_USER_NAME, false, null);
-		createRole(ROLE_ADMINISTRATOR_NAME, false, roleRepository.findByName(ROLE_USER_NAME));
+		Role roleUser = createRole(ROLE_USER_NAME, false, null);
+		grantPermission(roleUser, PermissionConst.USER_OWN_READ);
+		grantPermission(roleUser, PermissionConst.USER_OWN_WRITE);
+		grantPermission(roleUser, PermissionConst.USER_OWN_DELETE);
+		Role roleAdministrator = createRole(ROLE_ADMINISTRATOR_NAME, false, roleRepository.findByName(ROLE_USER_NAME));
+		grantPermission(roleAdministrator, PermissionConst.USERS_READ);
+		grantPermission(roleAdministrator, PermissionConst.USERS_WRITE);
+		grantPermission(roleAdministrator, PermissionConst.USERS_DELETE);
 	}
 
 	private Role createRole(String name, boolean forGuest, Role parentRole) {
@@ -44,6 +53,17 @@ public class BootstrapService implements InitializingBean {
 			role = roleRepository.save(role);
 		}
 		return role;
+	}
+
+	private RolePermission grantPermission(Role role, PermissionConst permissionConst) {
+		RolePermission rolePermission = rolePermissionRepository.findByRoleAndPermissionConst(role, permissionConst);
+		if (rolePermission == null) {
+			rolePermission = new RolePermission();
+			rolePermission.setRole(role);
+			rolePermission.setPermissionConst(permissionConst);
+			rolePermissionRepository.save(rolePermission);
+		}
+		return rolePermission;
 	}
 
 	private void createDefaultUsers() {
@@ -62,6 +82,9 @@ public class BootstrapService implements InitializingBean {
 
 	@Autowired
 	private RoleRepository roleRepository;
+
+	@Autowired
+	private RolePermissionRepository rolePermissionRepository;
 
 	@Autowired
 	private UserRepository userRepository;
