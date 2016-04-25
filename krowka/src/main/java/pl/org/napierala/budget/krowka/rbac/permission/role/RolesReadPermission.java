@@ -1,11 +1,12 @@
-package pl.org.napierala.budget.krowka.rbac.permission.user;
+package pl.org.napierala.budget.krowka.rbac.permission.role;
 
+import pl.org.napierala.budget.krowka.model.Role;
 import pl.org.napierala.budget.krowka.model.User;
 import pl.org.napierala.budget.krowka.rbac.permission.Permission;
 
-public class UsersReadPermission implements Permission {
+public class RolesReadPermission implements Permission {
 
-	private static final String NAME = "users_read";
+	private static final String NAME = "roles_read";
 
 	@Override
 	public String getName() {
@@ -14,7 +15,7 @@ public class UsersReadPermission implements Permission {
 
 	@Override
 	public boolean hasAccess(Object object, User user) {
-		return object instanceof User;
+		return object instanceof Role;
 	}
 
 }
