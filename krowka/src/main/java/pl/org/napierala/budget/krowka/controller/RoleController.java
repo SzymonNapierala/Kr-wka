@@ -27,17 +27,17 @@ public class RoleController {
 
 	public static List<Map<String, Object>> buildModel(Iterable<Role> roles,
 			boolean withParentRole, boolean withChildrenRoles,
-			boolean withRolePermissions, boolean withUser) {
+			boolean withRolePermissions, boolean withUsers) {
 		List<Map<String, Object>> model = new LinkedList<>();
 		for (Role role: roles) {
 			model.add(buildModel(role, withParentRole, withChildrenRoles,
-					withRolePermissions, withUser));
+					withRolePermissions, withUsers));
 		}
 		return model;
 	}
 
 	public static Map<String, Object> buildModel(Role role, boolean withParentRole,
-			boolean withChildrenRoles, boolean withRolePermissions, boolean withUser) {
+			boolean withChildrenRoles, boolean withRolePermissions, boolean withUsers) {
 		Map<String, Object> model = null;
 		if (role != null) {
 			model = new HashMap<>();
@@ -56,8 +56,8 @@ public class RoleController {
 				model.put("rolePermissions",
 						RolePermissionController.buildModel(role.getRolePermissions(), false));
 			}
-			if (withUser) {
-				//TODO
+			if (withUsers) {
+				model.put("users", UserController.buildModel(role.getUsers(), false, false));
 			}
 		}
 		return model;
