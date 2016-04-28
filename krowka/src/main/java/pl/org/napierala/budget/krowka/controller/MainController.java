@@ -28,6 +28,12 @@ public class MainController {
 		return "index";
 	}
 
+	@RequestMapping("/configuration")
+	public String configuration(Model model,
+			@RequestParam(value = "page", required = false) String page) {
+		return (page == null) ? "configuration" : "configuration/" + page;
+	}
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(
 			@RequestParam(value = "error", required = false) String error) {

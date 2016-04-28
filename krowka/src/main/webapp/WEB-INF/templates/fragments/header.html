@@ -11,11 +11,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><img th:src="@{/resources/img/logo.png}" alt="Krówka" class="logo"/></a>
+				<a class="navbar-brand" th:href="@{/}"><img th:src="@{/resources/img/logo.png}" alt="Krówka" class="logo"/></a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Ustawienia</a></li>
+					<li><a href="configuration" th:text="#{page.configuration}"></a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Użytkownik <span class="caret"></span></a>
 						<ul class="dropdown-menu">
