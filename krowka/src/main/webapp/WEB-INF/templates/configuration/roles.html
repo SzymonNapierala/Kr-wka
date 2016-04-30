@@ -1,1 +1,14 @@
 <h1 class="page-header" th:text="#{page.configuration.roles}"></h1>
+
+<table class="table">
+	<tr>
+		<th th:text="#{model.role.name}"></th>
+		<th th:text="#{model.role.for_guest}"></th>
+		<th th:text="#{model.role.parent_role}"></th>
+	</tr>
+	<tr ng-repeat="role in roles">
+		<td>{{role.name}}</td>
+		<td>{{role.forGuest ? '<span th:text="#{message.yes}" th:remove="tag"></span>' : '<span th:text="#{message.no}" th:remove="tag"></span>'}}</td>
+		<td>{{role.parentRole ? role.parentRole.name : '<span th:text="#{message.no}" th:remove="tag"></span>'}}</td>
+	</tr>
+</table>

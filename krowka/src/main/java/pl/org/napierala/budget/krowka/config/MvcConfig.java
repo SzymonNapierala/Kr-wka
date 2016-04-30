@@ -29,6 +29,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		templateResolver.setSuffix(".html");
 		templateResolver.setTemplateMode("HTML5");
 		templateResolver.setCharacterEncoding("UTF-8");
+		templateResolver.setCacheable(false);
 		return templateResolver;
 	}
 
@@ -58,7 +59,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource =
 				new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("classpath:/i18n/app");
+		messageSource.setBasenames("classpath:/i18n/app", "classpath:/i18n/role");
 		messageSource.setDefaultEncoding("UTF-8");
 		return messageSource;
 	}
