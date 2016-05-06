@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +19,13 @@ import pl.org.napierala.budget.krowka.repository.RoleRepository;
 @Controller
 @RequestMapping("/api")
 public class RoleController {
+
+	@RequestMapping(method = RequestMethod.POST, value = "/role")
+	@Transactional
+	public @ResponseBody Map<String, Object> createRole(@RequestBody Role role) {
+		role = roleRepository.save(role);
+		return buildModel(role, true, true, true, true);
+	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/roles")
 	@Transactional
