@@ -57,15 +57,19 @@ public class RoleController {
 						false, false, false, false));
 			}
 			if (withChildrenRoles) {
-				model.put("childrenRoles", buildModel(role.getChildrenRoles(),
-						false, false, false, false));
+				model.put("childrenRoles", (role.getChildrenRoles() != null)
+						? buildModel(role.getChildrenRoles(), false, false, false, false)
+						: null);
 			}
 			if (withRolePermissions) {
-				model.put("rolePermissions",
-						RolePermissionController.buildModel(role.getRolePermissions(), false));
+				model.put("rolePermissions", (role.getRolePermissions() != null)
+						? RolePermissionController.buildModel(role.getRolePermissions(), false)
+						: null);
 			}
 			if (withUsers) {
-				model.put("users", UserController.buildModel(role.getUsers(), false, false));
+				model.put("users", (role.getUsers() != null)
+						? UserController.buildModel(role.getUsers(), false, false)
+						: null);
 			}
 		}
 		return model;
