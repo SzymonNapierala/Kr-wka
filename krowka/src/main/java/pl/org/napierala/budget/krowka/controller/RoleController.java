@@ -50,6 +50,15 @@ public class RoleController {
 		return buildModel(role, true, true, true, true);
 	}
 
+	@RequestMapping(method = RequestMethod.DELETE, value = "/role/{id}")
+	@Transactional
+	public @ResponseBody Map<String, Object> deleteRole(
+			@PathVariable(value = "id") Long id) {
+		Role role = roleRepository.findOne(id);
+		roleRepository.delete(role);
+		return buildModel(role, true, true, true, true);
+	}
+
 	public static List<Map<String, Object>> buildModel(Iterable<Role> roles,
 			boolean withParentRole, boolean withChildrenRoles,
 			boolean withRolePermissions, boolean withUsers) {

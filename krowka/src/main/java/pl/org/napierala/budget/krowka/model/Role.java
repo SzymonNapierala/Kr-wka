@@ -2,6 +2,7 @@ package pl.org.napierala.budget.krowka.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -86,17 +87,17 @@ public class Role {
 	@JoinColumn(name = "parent_role_id")
 	private Role parentRole;
 
-	@OneToMany(mappedBy = "parentRole")
+	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "parentRole")
 	private List<Role> childrenRoles;
 
-	@OneToMany(mappedBy = "role")
+	@OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "role")
 	private List<RolePermission> rolePermissions;
 
 	@ManyToMany
 	@JoinTable(
 			name = "user_role",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "role_id"))
+			joinColumns = @JoinColumn(name = "role_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;
 
 }

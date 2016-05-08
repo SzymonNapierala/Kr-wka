@@ -65,6 +65,13 @@
 			});
 		};
 
+		$scope.deleteRole = function(role) {
+			$http.delete("api/role/" + role.id, role).then(function(response) {
+				$scope.loadRoles();
+				$("#modal-role-delete").modal("hide");
+			});
+		};
+
 		$scope.loadRoles();
 
 	}]);
