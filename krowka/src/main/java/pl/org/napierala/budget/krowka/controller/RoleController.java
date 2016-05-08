@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,10 +28,26 @@ public class RoleController {
 		return buildModel(role, true, true, true, true);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/role/{id}")
+	@Transactional
+	public @ResponseBody Map<String, Object> getRole(@PathVariable(value = "id") Long id) {
+		return buildModel(roleRepository.findOne(id), true, true, true, true);
+	}
+
 	@RequestMapping(method = RequestMethod.GET, value = "/roles")
 	@Transactional
 	public @ResponseBody List<Map<String, Object>> getRoles() {
 		return buildModel(roleRepository.findAll(), true, true, true, true);
+	}
+
+	@RequestMapping(method = RequestMethod.PUT, value = "/role/{id}")
+	@Transactional
+	public @ResponseBody Map<String, Object> updateRole(
+			@PathVariable(value = "id") Long id,
+			@RequestBody Role role) {
+		role.setId(id);
+		role = roleRepository.save(role);
+		return buildModel(role, true, true, true, true);
 	}
 
 	public static List<Map<String, Object>> buildModel(Iterable<Role> roles,

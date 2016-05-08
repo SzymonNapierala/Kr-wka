@@ -7,11 +7,18 @@
 		<th th:text="#{model.role.name}"></th>
 		<th th:text="#{model.role.for_guest}"></th>
 		<th th:text="#{model.role.parent_role}"></th>
+		<th></th>
 	</tr>
 	<tr ng-repeat="role in roles">
 		<td>{{role.name}}</td>
 		<td>{{role.forGuest ? '<span th:text="#{message.yes}" th:remove="tag"></span>' : '<span th:text="#{message.no}" th:remove="tag"></span>'}}</td>
 		<td>{{role.parentRole ? role.parentRole.name : '<span th:text="#{message.no}" th:remove="tag"></span>'}}</td>
+		<td>
+			<button type="button" class="btn btn-primary"
+					data-toggle="modal" data-target="#modal-role-update"
+					ng-click="prepareRole(role.id);"
+					th:text="#{model.role.update}"></button>
+		</td>
 	</tr>
 </table>
 
@@ -45,6 +52,42 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-primary" ng-click="createRole(role);" th:text="#{action.save}"></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" th:text="#{action.cancel}"></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="modal-role-update" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" th:attr="aria-label=#{action.close}"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" th:text="#{model.role.update}"></h4>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="input-role-name" th:text="#{model.role.name}"></label>
+						<input type="text" class="form-control" id="input-role-name" ng-model="role.name" th:placeholder="#{model.role.name}"/>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" ng-model="role.forGuest"/>
+							<span th:text="#{model.role.for_guest}" th:remove="tag"/>
+						</label>
+					</div>
+					<div class="form-group">
+						<label for="input-role-parent-role" th:text="#{model.role.parent_role}"></label>
+						<select class="form-control" id="input-role-parent-role"
+								ng-model="role.parentRole"
+								ng-options="r as (r !== null) ? r.name : '' for r in [null].concat(parentRoles)"
+								th:placeholder="#{model.role.parent_role}"></select>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" ng-click="updateRole(role);" th:text="#{action.save}"></button>
 				<button type="button" class="btn btn-default" data-dismiss="modal" th:text="#{action.cancel}"></button>
 			</div>
 		</div>
