@@ -59,7 +59,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource =
 				new ReloadableResourceBundleMessageSource();
-		messageSource.setBasenames("classpath:/i18n/app", "classpath:/i18n/role");
+		messageSource.setBasenames("classpath:/i18n/app",
+				"classpath:/i18n/role", "classpath:/i18n/user");
 		messageSource.setDefaultEncoding("UTF-8");
 		return messageSource;
 	}

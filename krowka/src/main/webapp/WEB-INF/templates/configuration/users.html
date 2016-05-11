@@ -1,1 +1,116 @@
 <h1 class="page-header" th:text="#{page.configuration.users}"></h1>
+
+<button type="button" class="btn btn-primary"
+		data-toggle="modal" data-target="#modal-user-create"
+		ng-click="prepareNewUser();" th:text="#{model.user.create}"></button>
+
+<table class="table">
+	<tr>
+		<th th:text="#{model.user.first_name}"></th>
+		<th th:text="#{model.user.last_name}"></th>
+		<th th:text="#{model.user.username}"></th>
+		<th></th>
+	</tr>
+	<tr ng-repeat="user in users">
+		<td>{{user.firstName}}</td>
+		<td>{{user.lastName}}</td>
+		<td>{{user.username}}</td>
+		<td>
+			<button type="button" class="btn btn-primary"
+					data-toggle="modal" data-target="#modal-user-update"
+					ng-click="prepareUser(user.id);"
+					th:text="#{model.user.update}"></button>
+			<button type="button" class="btn btn-primary"
+					data-toggle="modal" data-target="#modal-user-delete"
+					ng-click="prepareUser(user.id);"
+					th:text="#{model.user.delete}"></button>
+		</td>
+	</tr>
+</table>
+
+<div id="modal-user-create" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" th:attr="aria-label=#{action.close}"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" th:text="#{model.user.create}"></h4>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="input-user-first-name" th:text="#{model.user.first_name}"></label>
+						<input type="text" class="form-control" id="input-user-first-name"
+								ng-model="user.firstName" th:placeholder="#{model.user.first_name}"/>
+					</div>
+					<div class="form-group">
+						<label for="input-user-last-name" th:text="#{model.user.last_name}"></label>
+						<input type="text" class="form-control" id="input-user-last-name"
+								ng-model="user.lastName" th:placeholder="#{model.user.last_name}"/>
+					</div>
+					<div class="form-group">
+						<label for="input-user-username" th:text="#{model.user.username}"></label>
+						<input type="text" class="form-control" id="input-user-username"
+								ng-model="user.username" th:placeholder="#{model.user.username}"/>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" ng-click="createUser(user);" th:text="#{action.save}"></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" th:text="#{action.cancel}"></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="modal-user-update" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" th:attr="aria-label=#{action.close}"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" th:text="#{model.user.update}"></h4>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="input-user-first-name" th:text="#{model.user.first_name}"></label>
+						<input type="text" class="form-control" id="input-user-first-name"
+								ng-model="user.firstName" th:placeholder="#{model.user.first_name}"/>
+					</div>
+					<div class="form-group">
+						<label for="input-user-last-name" th:text="#{model.user.last_name}"></label>
+						<input type="text" class="form-control" id="input-user-last-name"
+								ng-model="user.lastName" th:placeholder="#{model.user.last_name}"/>
+					</div>
+					<div class="form-group">
+						<label for="input-user-username" th:text="#{model.user.username}"></label>
+						<input type="text" class="form-control" id="input-user-username"
+								ng-model="user.username" th:placeholder="#{model.user.username}"/>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" ng-click="updateUser(user);" th:text="#{action.save}"></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" th:text="#{action.cancel}"></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="modal-user-delete" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" th:attr="aria-label=#{action.close}"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" th:text="#{model.user.delete}"></h4>
+			</div>
+			<div class="modal-body">
+				<p th:text="#{model.user.delete.confirm}"></p>
+				<div class="alert alert-warning" role="alert" th:text="#{model.user.delete.warning}"></div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" ng-click="deleteUser(user);" th:text="#{message.yes}"></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" th:text="#{message.no}"></button>
+			</div>
+		</div>
+	</div>
+</div>
