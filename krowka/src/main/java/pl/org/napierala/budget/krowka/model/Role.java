@@ -13,8 +13,20 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
-public class Role {
+public class Role implements GrantedAuthority {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	public String getAuthority() {
+		return "ROLE_" + this.getName().toUpperCase();
+	}
 
 	public Long getId() {
 		return this.id;

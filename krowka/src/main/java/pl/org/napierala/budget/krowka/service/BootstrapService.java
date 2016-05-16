@@ -18,12 +18,12 @@ import pl.org.napierala.budget.krowka.repository.UserRepository;
 @Service
 public class BootstrapService implements InitializingBean {
 
-	private String ROLE_ADMINISTRATOR_NAME = "administrator";
-	private String ROLE_GUEST_NAME = "guest";
-	private String ROLE_USER_NAME = "user";
+	private static final String ROLE_ADMINISTRATOR_NAME = "administrator";
+	private static final String ROLE_GUEST_NAME = "guest";
+	private static final String ROLE_USER_NAME = "user";
 
-	private String USER_ADMIN_USERNAME = "admin";
-	private String USER_ADMIN_PASSWORD = "admin";
+	private static final String USER_ADMIN_USERNAME = "admin";
+	private static final String USER_ADMIN_PASSWORD = "admin";
 
 	@Override
 	public void afterPropertiesSet() throws Exception {

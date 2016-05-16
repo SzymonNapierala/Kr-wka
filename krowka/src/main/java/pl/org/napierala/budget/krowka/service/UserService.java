@@ -1,13 +1,11 @@
 package pl.org.napierala.budget.krowka.service;
 
-import java.util.LinkedList;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import pl.org.napierala.budget.krowka.model.User;
 import pl.org.napierala.budget.krowka.repository.UserRepository;
@@ -16,12 +14,13 @@ import pl.org.napierala.budget.krowka.repository.UserRepository;
 public class UserService implements UserDetailsService {
 
 	@Override
+	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = this.userRepository.findByUsername(username);
 		if (user != null) {
 			return new org.springframework.security.core.userdetails.User(
 					user.getUsername(), user.getPasswordEncrypted(),
-					new LinkedList<GrantedAuthority>());
+					user.getRoles());
 		}
 		throw new UsernameNotFoundException(username);
 	}

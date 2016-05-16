@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,6 +29,7 @@ public class MainController {
 		return "index";
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMINISTRATOR')")
 	@RequestMapping("/configuration")
 	public String configuration(Model model,
 			@RequestParam(value = "page", required = false) String page) {
